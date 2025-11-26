@@ -2,6 +2,8 @@
 batch_connect:
   template: "basic"
 script:
+  queue_name: <%= queue %>
+  accounting_id: <%= account %>
   native:
     - "-l"
     - "select=1:ncpus=2:mem=10GB"

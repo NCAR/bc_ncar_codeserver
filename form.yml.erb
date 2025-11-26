@@ -1,0 +1,31 @@
+
+---
+cluster: 
+  - "casper"
+form:
+  - account
+  - bc_num_hours
+  - working_dir
+  - queue
+attributes:
+  working_dir:
+    widget: "path_selector"
+    label: "Working Directory"
+    data-target-file-type: dirs  # Valid values are: files, dirs, or both
+    readonly: false
+    help: "Select your project directory; defaults to $HOME"
+  account:
+    label: "Custom Account"
+    widget: select
+    options:
+      <%- CustomAccounts.accounts.each do |account| %>
+      - "<%= account.strip %>"
+    <%- end %>
+  queue:
+    label: "Queue"
+    widget: select
+    options:
+      <%- CustomQueues.queues.each do |queue| %>
+      - "<%= queue.strip %>"
+    <%- end %>
+    cacheable: false
